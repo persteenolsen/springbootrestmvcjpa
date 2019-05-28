@@ -3,7 +3,7 @@
 
 <html lang="en">
 <head>
-	<title>A Java Spring Boot REST MVC JPA Web Application</title>
+	<title>A Java Spring Boot REST MVC JPA Application</title>
 	
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
