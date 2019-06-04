@@ -15,7 +15,8 @@ public class WelcomeController {
 	private String helloworld = "";
 		
 	//@GetMapping("/")
-	@GetMapping({"/welcome", "/home"})
+	//@GetMapping({"/welcome", "/home"})
+	@GetMapping({"/", "/welcome"})
 	public String welcome(Map<String, Object> model) {
 
 		helloworld = "Welcome to a Java Spring Boot REST MVC JPA Web application!";

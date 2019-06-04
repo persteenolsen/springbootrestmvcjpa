@@ -14,8 +14,8 @@ public class ClientRestController {
 	
 	private String helloworld = "";
 		
-	@GetMapping({"/", "/clientrest"})
-	//@GetMapping({"/clientrest"})
+	//@GetMapping({"/", "/clientrest"})
+	@GetMapping("/clientrest")
 	public String clientrest(Map<String, Object> model) {
 
 		helloworld = "A Java Spring Boot REST MVC JPA Web application!";
