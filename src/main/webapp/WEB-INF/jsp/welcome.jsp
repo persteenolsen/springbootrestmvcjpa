@@ -26,7 +26,12 @@
 	
 	<div class="body-content">
 
+
 	<div class="header-text" >${welcomemessage}</div>
+
+	
+	
+	<div class="body-text" >${memorymessage}</div>
 
 	<br>
 	Take a look at the Web application by using one of the menu items "Admin persons REST" or

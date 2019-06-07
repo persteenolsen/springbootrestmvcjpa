@@ -33,10 +33,25 @@
          <artifactId>mssql-jdbc</artifactId>
       </dependency>
 	  
+		<!--NOTE: The exlusion of com.zaxxer - HikariCP is for using Tomcat JDBC instead.
+	 -It seems that there is an issue with Hikari and MS SQL jdbc on Azure (low memory)-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<exclusions>
+        <exclusion>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+        </exclusion>
+    </exclusions>
 		</dependency>
+    <dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-jdbc</artifactId>
+    <version>9.0.10</version>
+    </dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -89,13 +104,27 @@
 
 	<build>
 		<plugins>
-			<plugin>
+
+		<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<!--configuration>
-                <jvmArguments>-Xms512m</jvmArguments>
-            </configuration>--> 
-			</plugin>
+		  </plugin>
+      
+			<!--
+		  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <fork>true</fork>
+          <meminitial>512m</meminitial>
+          <maxmem>756m</maxmem>
+
+					<source>1.8</source>
+          <target>1.8</target>
+
+        </configuration>
+      </plugin>-->
 
 			<!--
 	  <plugin>
