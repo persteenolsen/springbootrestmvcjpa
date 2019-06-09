@@ -52,6 +52,9 @@ public class WelcomeController {
 	helloworld = "Welcome to a Java Spring Boot REST MVC JPA Web application!";
 
 	model.put("welcomemessage", helloworld);
+
+	// TEST 
+	runtime.gc();
 				
 	return "welcome";
 	}

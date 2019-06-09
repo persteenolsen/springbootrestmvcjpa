@@ -37,7 +37,12 @@ public class PersonRestController
  
     @GetMapping(value = "/persons")
     public List<PersonEntity> getAllPersons() {
-        return repository.findAll();
+        // TEST 
+	//Getting the runtime reference from system
+	//Runtime runtime = Runtime.getRuntime();
+    //runtime.gc();
+    
+     return repository.findAll();
     }
  
     @PostMapping("/person")

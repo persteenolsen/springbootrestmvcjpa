@@ -40,6 +40,12 @@ public class PersonMVCController {
 	 ModelAndView model = new ModelAndView("person_list");
 	 List<PersonEntity> personList = personService.getAll();
 	 model.addObject("personList", personList);
+
+	 
+	// TEST 
+	//Getting the runtime reference from system
+	//Runtime runtime = Runtime.getRuntime();
+	//runtime.gc();
 	 
 	 return model;
 	}
