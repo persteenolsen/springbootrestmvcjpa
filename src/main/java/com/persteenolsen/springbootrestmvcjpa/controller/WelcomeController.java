@@ -1,5 +1,3 @@
-
-
 package com.persteenolsen.springbootrestmvcjpa.controller;
 
 import java.util.Map;
@@ -45,7 +43,7 @@ public class WelcomeController {
 	//System.out.println("Max Memory:" + runtime.maxMemory() / mb);
 	long maxmemory = runtime.maxMemory() / mb;
 	
-	String memoryheapS = "Memory info in MB - Used: " + usedmemory + " Free: " + freememory + " Total: " + totalmemory + " Max: " + maxmemory;
+	String memoryheapS = "JVM Memory info in MB - Used: " + usedmemory + " Free: " + freememory + " Total: " + totalmemory + " Max: " + maxmemory;
 
 	model.put("memorymessage", memoryheapS);
 

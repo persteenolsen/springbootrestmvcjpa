@@ -52,11 +52,14 @@
 
 	<li>Visual Studio Code with the Microsoft Java Extension Pack</li>	
 	<li>Microsoft Azure App Service with a Free App Service Plan for web hosting</li>
+	
+    <li>JVM memory have been set to an alocation of 512 MB both initial and max because of the limited physial memory</li>
 	<li>MS SQL Database</li>
 	
 	</ul>
 
 	<ul>
+		<li>Datasource is Tomcat JDBC instead of default Hikari</li>
 		<li>REST, MVC as well as a Service and JPA Repository layer</li>	
 		<li>Maven as build tool</li>	
 		<li>JPA and Hibernate for initializing the Database</li>
