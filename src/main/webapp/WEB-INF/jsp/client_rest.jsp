@@ -213,7 +213,11 @@
 
                        },
                        error: function (x, y, z) {
-                           alert(x + '\n' + y + '\n' + z);
+                           //alert(x + '\n' + y + '\n' + z);
+                           var statuscode = x.status;
+                           var statustext = x.statusText;
+                           var messages = "Something went wrong!";
+                           alert(statustext + '\n' + statuscode + '\n\n' + messages );
                        }
                    });
                }
@@ -243,7 +247,11 @@
                            WriteResponse(data);
                        },
                        error: function (x, y, z) {
-                           alert(x + '\n' + y + '\n' + z);
+                           //alert(x + '\n' + y + '\n' + z);
+                           var statuscode = x.status;
+                           var statustext = x.statusText;
+                           var messages = "Something went wrong!";
+                           alert(statustext + '\n' + statuscode + '\n\n' + messages );
                        }
                    });
                }
@@ -261,7 +269,11 @@
                            ShowPerson(data);
                        },
                        error: function (x, y, z) {
-                           alert(x + '\n' + y + '\n' + z);
+                           //alert(x + '\n' + y + '\n' + z);
+                           var statuscode = x.status;
+                           var statustext = x.statusText;
+                           var messages = "Something went wrong!";
+                           alert(statustext + '\n' + statuscode + '\n\n' + messages );
                        }
                    });
                }
@@ -295,9 +307,16 @@
                            GetAllPersons();
                        },
                        error: function (x, y, z) {
-                           var responseText = jQuery.parseJSON(x.responseText);
-                           
-                           alert(z + '\n\n' + responseText.Message);
+                           //var responseText = jQuery.parseJSON(x.responseText);
+                           //alert(z + '\n\n' + responseText.Message);
+
+                           var statuscode = x.status;
+                           var statustext = x.statusText;
+                           var messages = "Something went wrong!";
+                           if(statuscode==400)
+                               messages = "Please make sure to enter valid values!";
+                               
+                           alert(statustext + '\n' + statuscode + '\n\n' + messages );
 
                        }
 
@@ -335,10 +354,15 @@
                                GetAllPersonsDropDownList();
                            },
                            error: function (x, y, z) {
-                               var responseText = jQuery.parseJSON(x.responseText);
+                               //var responseText = jQuery.parseJSON(x.responseText);
+                               //alert(z + '\n\n' + responseText.Message);
+                              var statuscode = x.status;
+                              var statustext = x.statusText;
+                              var messages = "Something went wrong!";
+                              if(statuscode==400)
+                                  messages = "Please make sure to enter valid values!";
                                
-                               alert(z + '\n\n' + responseText.Message);
-
+                               alert(statustext + '\n' + statuscode + '\n\n' + messages );
                            }
 
 
@@ -369,7 +393,11 @@
                            GetAllPersons();
                        },
                        error: function (x, y, z) {
-                           alert(x + '\n' + y + '\n' + z);
+                           //alert(x + '\n' + y + '\n' + z);
+                           var statuscode = x.status;
+                           var statustext = x.statusText;
+                           var messages = "Something went wrong!";
+                           alert(statustext + '\n' + statuscode + '\n\n' + messages );
                        }
                    });
 
