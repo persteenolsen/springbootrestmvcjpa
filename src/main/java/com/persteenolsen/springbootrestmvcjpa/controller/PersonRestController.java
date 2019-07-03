@@ -3,8 +3,7 @@ package com.persteenolsen.springbootrestmvcjpa.controller;
 
 import com.persteenolsen.springbootrestmvcjpa.model.PersonEntity;
 
-import com.persteenolsen.springbootrestmvcjpa.dao.PersonRepository;
-//import com.persteenolsen.springbootrestmvcjpa.service.PersonService;
+import com.persteenolsen.springbootrestmvcjpa.service.PersonService;
 
 import java.util.List;
  
@@ -24,54 +23,44 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/person-management", produces = { MediaType.APPLICATION_JSON_VALUE })
 public class PersonRestController
 {
+    
     @Autowired
-    private PersonRepository repository;
+    private PersonService personService;
  
-    public PersonRepository getRepository() {
-        return repository;
-    }
- 
-    public void setRepository(PersonRepository repository) {
-        this.repository = repository;
-    }
  
     @GetMapping(value = "/persons")
     public List<PersonEntity> getAllPersons() {
-        // TEST 
-	//Getting the runtime reference from system
-	//Runtime runtime = Runtime.getRuntime();
-    //runtime.gc();
-    
-     return repository.findAll();
+      
+     return personService.getAll();
     }
  
     @PostMapping("/person")
     PersonEntity createOrSavePerson(@RequestBody PersonEntity newPerson) {
-        return repository.save(newPerson);
+       
+        return personService.saveUpdate(newPerson);
     }
  
     @GetMapping("/person/{id}")
     PersonEntity getPersonById(@PathVariable Long id) {
-        return repository.findById(id).get();
+        
+        return personService.getPersonById(id);
     }
  
     @PutMapping("/person/{id}")
     PersonEntity updatePerson(@RequestBody PersonEntity newPerson, @PathVariable Long id) {
- 
-        return repository.findById(id).map(person -> {
+           PersonEntity person = personService.getPersonById(id);
+
             person.setName(newPerson.getName());
             person.setEmail(newPerson.getEmail());
             person.setAge(newPerson.getAge());
 
-            return repository.save(person);
-        }).orElseGet(() -> {
-            newPerson.setId(id);
-            return repository.save(newPerson);
-        });
+           return personService.saveUpdate(person);
+        
     }
  
     @DeleteMapping("/person/{id}")
     void deletePerson(@PathVariable Long id) {
-        repository.deleteById(id);
+        
+        personService.deletePerson(id);
     }
 }

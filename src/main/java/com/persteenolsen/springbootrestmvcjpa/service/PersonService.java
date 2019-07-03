@@ -37,10 +37,15 @@ public class PersonService {
          return person;
        }
        
-       // This method is used by Update + Create
+       // Note: This method is used by Update + Create by MVC controller only
        public void saveOrUpdate(PersonEntity person) {
           personRepo.save(person);
        }
+
+       // Note: This method is used by Update + Create by REST controller only
+       public PersonEntity saveUpdate(PersonEntity person) {
+        return personRepo.save(person);
+     }
     
        // This method is used to delete a person by Id
        public void deletePerson(long id) {
