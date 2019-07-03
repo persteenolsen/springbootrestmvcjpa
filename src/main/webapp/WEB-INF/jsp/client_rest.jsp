@@ -312,9 +312,9 @@
 
                            var statuscode = x.status;
                            var statustext = x.statusText;
-                           var messages = "Something went wrong!";
-                           if(statuscode==400)
-                               messages = "Please make sure to enter valid values!";
+                           var messages = "Something went wrong, please try to add a person again!";
+                          // if(statuscode==400)
+                          //     messages = "Please make sure to enter valid values!";
                                
                            alert(statustext + '\n' + statuscode + '\n\n' + messages );
 
@@ -324,10 +324,11 @@
                }
 
 
-               function EditPerson() {
+
+            function EditPerson() {
                    //jQuery.support.cors = true;
 
-                   var id = $('#txtPutPostId').val();
+                       var id = $('#txtPutPostId').val();
 
                        var person = {
                            id: $('#txtPutPostId').val(),
@@ -358,9 +359,9 @@
                                //alert(z + '\n\n' + responseText.Message);
                               var statuscode = x.status;
                               var statustext = x.statusText;
-                              var messages = "Something went wrong!";
-                              if(statuscode==400)
-                                  messages = "Please make sure to enter valid values!";
+                              var messages = "Something went wrong, please try edit the person again!";
+                              //if(statuscode==400)
+                              //    messages = "Please make sure to enter valid values!";
                                
                                alert(statustext + '\n' + statuscode + '\n\n' + messages );
                            }
